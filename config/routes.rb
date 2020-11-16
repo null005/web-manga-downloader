@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
-  get 'sessions/create'
-  get 'sessions/welcome'
+  get 'login', to: 'sessions#new'
+
+  post 'login', to: 'sessions#create'
+
+  get 'welcome', to: 'sessions#welcome'
 
   resources :users, only: [:create, :new]
 
