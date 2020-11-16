@@ -1,15 +1,18 @@
 class UsersController < ApplicationController
   
+  skip_before_action :authorized, only: [:new, :create]
 
-  # GET /users/new
   def new
     @user = User.new
   end
 
-
-  # POST /users
-  # POST /users.json
   def create
-    @user = User.new(user_params)
+
+    @user = User.create(params.require(:user).permit(:name, :email, :password)) 
+
+    session[:user_id] = @user.id
+
+    redirect_to '/welcome'
+    
   end
 end
