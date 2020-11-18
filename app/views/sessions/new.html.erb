@@ -1,2 +1,21 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<h1>Login</h1>
+
+<% form_tag '/login' do %>
+
+    <%= label_tag :name %>
+    <%= text_field_tag :name %>
+
+    <%= label_tag :email %>
+    <%= text_field_tag :email %>
+
+    <%= label_tag :password %>
+    <%= text_field_tag :password %>
+
+    <%= submit_tag 'Login' %>
+
+<%end%>
+
+<p>Don't have an account? Try to Sign Up!</p>
+
+<%= link_to 'Sign Up', '/users/new'%>
+
