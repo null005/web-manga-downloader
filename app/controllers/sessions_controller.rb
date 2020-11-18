@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
 
   def create
 
-    @user = User.find_by(name: params[:name, :email])
+    @user = User.find_by(name: params[:name])
 
     if @user && @user.authenticate(params[:password])
 
@@ -23,6 +23,10 @@ class SessionsController < ApplicationController
       redirect_to '/login'
 
     end
+  end
+
+  def page_requires_login
+
   end
 
 end
