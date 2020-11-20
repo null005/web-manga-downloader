@@ -28,4 +28,10 @@ class SessionsController < ApplicationController
   def page_requires_login
   end
 
+  def logout
+    if @user
+      session[:user_id] = nil
+      redirect_to 'welcome'
+    end
+  end
 end
