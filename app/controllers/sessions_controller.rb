@@ -26,12 +26,16 @@ class SessionsController < ApplicationController
   end
 
   def page_requires_login
+    redirect_to '/welcome' unless session[:user_id]
   end
 
   def logout
-    if @user
+    if session[:user_id]
       session[:user_id] = nil
-      redirect_to 'welcome'
+      redirect_to '/login'
+    else
+      redirect_to '/welcome'
     end
   end
+
 end
