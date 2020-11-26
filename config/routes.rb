@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   get 'authorized', to: 'sessions#page_requires_login'
 
-  post 'logout', to: 'sessions#logout'
+  get 'logout', to: 'sessions#logout'
 
   root to: 'sessions#welcome'
 end
