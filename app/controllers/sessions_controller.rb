@@ -8,6 +8,9 @@ class SessionsController < ApplicationController
   def login
   end
 
+  def welcomesss
+  end
+
   def create
 
     @user = User.find_by(name: params[:name])
