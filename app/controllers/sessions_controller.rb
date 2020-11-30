@@ -8,12 +8,9 @@ class SessionsController < ApplicationController
   def login
   end
 
-  def welcomesss
-  end
-
   def create
 
-    @user = User.find_by(name: params[:name])
+    @user = User.find_by(name: params[:name], email: params[:email])
 
     if @user && @user.authenticate(params[:password])
 
