@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 
     session[:user_id] = @user.id
 
-    redirect_to '/authorized'
+    redirect_to '/authorized' 
     
   end
 end

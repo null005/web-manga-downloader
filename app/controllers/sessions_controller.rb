@@ -8,9 +8,15 @@ class SessionsController < ApplicationController
   def login
   end
 
+  def welcome
+    if session[:user_id]
+      redirect_to '/authorized'
+    end
+  end
+
   def create
 
-    @user = User.find_by(name: params[:name], email: params[:email])
+    @user = User.find_by!(name: params[:name], email: params[:email])
 
     if @user && @user.authenticate(params[:password])
 
@@ -19,7 +25,6 @@ class SessionsController < ApplicationController
       redirect_to '/authorized'
 
     else
-
       redirect_to '/login'
 
     end
